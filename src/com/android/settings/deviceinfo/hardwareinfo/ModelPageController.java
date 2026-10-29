@@ -1230,6 +1230,16 @@ public class ModelPageController extends BasePreferenceController {
                     displayName.offsetByCodePoints(0, 1)).toUpperCase());
         }
 
+        if (!isOfficial) {
+            if (avatarView != null) {
+                avatarView.setImageResource(R.drawable.ic_maintainer_avatar);
+                avatarView.setVisibility(View.VISIBLE);
+            }
+            if (initialView != null) {
+                initialView.setVisibility(View.GONE);
+            }
+        }
+
         if (isOfficial) {
             if (badgeView != null) {
                 badgeView.setVisibility(data.currentlyMaintained ? View.VISIBLE : View.GONE);
